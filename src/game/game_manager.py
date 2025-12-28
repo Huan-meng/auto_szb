@@ -3,9 +3,8 @@
 实现核心游戏逻辑和操作
 """
 
-from re import T
 import cv2
-from easyocr.craft import F
+
 import numpy as np
 import random
 import time
@@ -13,7 +12,7 @@ import logging
 import os
 import re
 from src.game.follower_manager import FollowerManager
-from src.game.cost_recognition import CostRecognition
+
 from src.game.template_manager import TemplateManager
 from src.game.game_actions import GameActions
 from src.utils.gpu_utils import get_easyocr_reader
@@ -22,7 +21,7 @@ from src.config.game_constants import (
     OUR_FOLLOWER_REGION, OUR_ATK_REGION, OUR_FOLLOWER_HSV,
     ENEMY_HP_REGION_OFFSET_X, ENEMY_HP_REGION_OFFSET_Y,
     ENEMY_FOLLOWER_OFFSET_X, ENEMY_FOLLOWER_OFFSET_Y,
-    ENEMY_ATK_REGION, OCR_CROP_HALF_SIZE, ENEMY_SHIELD_REGION,ENEMY_ATK_HSV,OUR_ATKHP_REGION
+    ENEMY_ATK_REGION, ENEMY_SHIELD_REGION,ENEMY_ATK_HSV,OUR_ATKHP_REGION
 )
 
 logger = logging.getLogger(__name__)
@@ -34,7 +33,6 @@ class GameManager:
     def __init__(self, device_state):
         self.device_state = device_state
         self.follower_manager = FollowerManager()
-        self.cost_recognition = CostRecognition()
         # 传递设备配置给模板管理器
         self.template_manager = TemplateManager(device_state.device_config)
         self.game_actions = GameActions(device_state)

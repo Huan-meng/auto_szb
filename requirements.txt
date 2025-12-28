@@ -1,0 +1,7 @@
+torch
+easyocr
+adbutils
+uiautomator2
+opencv-python
+numpy
+psutil
